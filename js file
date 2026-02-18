@@ -1,0 +1,57 @@
+// DOM Selection
+
+const input = document. Query Selector("input");
+const button = document. Query Selector("button");
+const list = document. query Selector("ol");
+
+// Function: Add Task
+
+function add Task() {
+
+  // Get trimmed user input
+  const task Text = input. value. Trim();
+
+  // Prevent empty tasks
+  if (task Text === "") return;
+
+  // Create new list item
+  const li = document. Create Element("li");
+
+  // Set text from input
+  li. inner Text = task Text;
+
+  // Apply styling (requirement)
+  li. style .cursor = "pointer";
+  li. style .padding = "6px";
+  li. style .background Color = "#f2f2f2";
+  li. style. margin Top = "5px";
+
+  // Add class (requirement)
+  li .set Attribute("class", "task-item");
+
+  // Append to ordered list
+  list. Append(li);
+
+  // Remove task when clicked
+  li. add Event Listener("click", function () {
+    li. remove();
+  });
+
+  // Clear input field
+  input. Value = "";
+}
+
+// Event Handling
+
+// Button click adds task
+button. Add Event Listener("click", add Task);
+
+
+// Optional (Bonus): Press Enter to add task
+input. Add Event Listener("key down", function(event) {
+  if (event. Key === "Enter") {
+    add Task();
+  
+});
+
+
